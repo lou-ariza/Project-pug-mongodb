@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title users
+    body
+        h1 #{title}
+        p Nouveau utilisateur, appuyer 
+            a(href='/users/add') ici
+
+        p Deja utilisateur, appuyer 
+            a(href='/users/login') ici
+        
+        ul
+            each user, i in users
+                li= user.userName
