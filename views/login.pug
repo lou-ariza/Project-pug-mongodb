@@ -2,21 +2,15 @@ doctype html
 html
     head
         title login
-    script
-        function checkUser(x,y) 
-            var a = x.value;
-            var b = y.value;
-            each user, i in users
-                if(user.userName==a && user.password==b)    
-                    alert("Utilisateur trouve")
-                else
-                    alert("Utilisateur non trouve") 
-        
     body
         h1 #{title}
-        label Nom d'utilisateur:
-        input(name='userName', type='text')
-        label Mot de passe:
-        input(name='password', type='text')
-        input(type="button" value ="Entrer" onclick="checkUser(userName,password)")
+        form(method='POST', action='/users/login')
+            #form-group
+                label Nom d'utilisateur:
+                input.form-control(name='userName', type='text')
+            #form-group
+                label Mot de passe:
+                input.form-control(name='password', type='text')
+            input(type='submit', value='Acceder')
+
                         

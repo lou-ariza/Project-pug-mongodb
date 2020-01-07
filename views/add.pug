@@ -4,14 +4,14 @@ html
         title users
     body
         h1 #{title}
-        form(method ='post', action='/users/add')
-        #form-group
-            label Nom d'utilisateur:
-            input.form-control(name='userName', type='text')
-        #form-group
-            label Courriel electronique:
-            input.form-control(name='email', type='text')
-        #form-group
-            label Mot de passe:
-            input.form-control(name='password', type='text')
-        input.btn(type='submit', value='Envoyer')
+        form(method='POST', action='/users/add')
+            #form-group
+                label Nom d'utilisateur:
+                input.form-control(name='userName', type='text')
+            #form-group
+                label Courriel electronique:
+                input.form-control(name='email', type='text')
+            #form-group
+                label Mot de passe:
+                input.form-control(name='password', type='text')
+            input(type='submit', value='Envoyer')

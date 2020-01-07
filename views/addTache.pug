@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        title taches
+    body
+        h1 #{title}
+        form(method='POST', action='/lists/add')
+            #form-group
+                label Tache a rajouter:
+                input.form-control(name='tacheName', type='text')
+            #form-group
+                label Dans quelle list?:
+                input.form-control(name='listId', type='text')
+            input(type='submit', value='Envoyer')
