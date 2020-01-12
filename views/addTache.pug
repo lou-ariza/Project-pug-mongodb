@@ -4,11 +4,26 @@ html
         title taches
     body
         h1 #{title}
+        p Dans quelle liste?  
+            select name='dropDown', id=''
+                option nouvelle liste 
+                    each list in lists
+                        option=list , value=list 
+        //script
+            function changeFunction()
+                var e = document.getElementByname('dropDown');
+                var selection = e.options[e.selectedIndex].text;
+                alert(selection);
+            //input(type='submit', value='Submit')
+        //alert(selection);
+        //if selection === 'nouvelle liste'
         form(method='POST', action='/lists/add')
-            #form-group
-                label Tache a rajouter:
-                input.form-control(name='tacheName', type='text')
-            #form-group
-                label Dans quelle list?:
-                input.form-control(name='listId', type='text')
-            input(type='submit', value='Envoyer')
+                #form-group
+                    label Tache a rajouter:
+                    input.form-control(name='tacheName', type='text')
+                #form-group
+                    //label Dans quelle list?:
+                    label Nom de la liste?
+                    input.form-control(name='listId', type='text')
+                    //listID=dropDown.value;
+                input(type='submit', value='Envoyer')

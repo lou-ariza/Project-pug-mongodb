@@ -57,8 +57,15 @@ app.get('/users/add',function(req,res){
 });
 
 app.get('/lists/addTache',function(req,res){
-    res.render('addTache',{
-        title:'Rajouter une nouvelle tache'
+    Tache.collection.distinct('listId', function(err,lists){
+        if(err){
+            console.log(err);
+        } else{
+            res.render('addTache',{
+            title:'Rajouter une nouvelle tache',
+            lists: lists
+            });
+        }
     });
 });
 
@@ -76,17 +83,13 @@ app.get('/users/login',function(req,res){
 });
 
 app.get('/lists',function(req,res){
-    Tache.find({}, function(err,taches){
+    Tache.collection.distinct('listId', function(err,lists){
         if(err){
             console.log(err);
         } else{
-            let tab = [ ];
-            each tache in taches
-                if (tab.includes(tache.listId)!){
-                    tab.push(tache.listId);}
             res.render('lists',{
             title: 'Lists et taches',
-            tab: tab
+            lists: lists
             });
         }
     });
