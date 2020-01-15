@@ -50,6 +50,13 @@ app.get('/',function(req,res){
 });
 
 //add route
+app.get('/lists/vourList',function(req,res){
+    res.render('vourList',{
+        title:'Contenue de liste',
+        req: req
+    });
+});
+
 app.get('/users/add',function(req,res){
     res.render('add',{
         title:'Nouveau Utilisateur'
@@ -131,7 +138,14 @@ app.post('/lists/add', function(req,res){
     //console.log(req.body);
    return;
 });
-
+//to display an existing list
+app.post('/lists', function(req,res){
+    User.find({listId: req.body},function(err,content){
+            res.redirect('/lists/vourList');
+            content: content
+    });
+    return;
+});
 
 //login acceder
 app.post('/users/login', function(req,res){

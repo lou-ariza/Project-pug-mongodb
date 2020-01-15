@@ -11,7 +11,11 @@ html
             select(name='dropDown', id='')
                 each list in lists
                     option=list
-                                
-            
+        a(href='/lists/vourList', class="button") Aller voir la liste
+
+                                  
+        //document.getElementsByClassName("button")[0].addEventListener("click", function(event){
+        //var listAV = document.getElementByname("dropDown").value;
+        //event.target.setAttribute("href", "/list/voirList"+listAV);});  
         
         
